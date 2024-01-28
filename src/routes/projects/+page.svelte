@@ -1,12 +1,12 @@
 <script>
     export let data;
     const { user } = data;
-
-    import Logout from "../../svgs/Logout.svelte";
+    
     import NewProject from "../../svgs/NewProject.svelte";
+    import Logout from "../../svgs/Logout.svelte";
 
     function formatDate(timestamp) {
-        const date = new Date(Date.now());
+        const date = new Date(Number(timestamp));
         return `${date.getDate()}/${date.getMonth() + 1}/${date.getFullYear()}`;
     }
 </script>
@@ -14,11 +14,11 @@
 <head>
     <title>{user.username}'s Projects</title>
 </head>
-<main>
+<main class="h-screen">
     <!-- navbar -->
     <nav class="flex flex-row justify-end gap-8 text-xl pr-6 py-4 bg-slate-800">
         <!-- username -->
-        <p class="underline">{user.username}</p>
+        <a href="/projects" class="underline">{user.username}</a>
         <a href="/logout" class="flex flex-row gap-2 hover:text-slate-400">
             <span>Logout</span>
             <Logout />

@@ -6,5 +6,5 @@ export function load({ cookies, params }) {
 
     const user = JSON.parse(user_cookie);
     const project = user.projects.find((p) => p.id === params.id);
-    return { project };
+    return { user, project };
 }

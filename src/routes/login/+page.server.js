@@ -12,7 +12,7 @@ export const actions = {
         const result = await bcrypt.compare(data.get('password'), user.password);
         if (!result) return { success: false, message: "Invalid email/username or password!" };
 
-        cookies.set("user", JSON.stringify(user), { path: "/", "maxAge": (data.get("remember") === "on" ? 60 * 60 * 24 * 7 : 0) });
+        cookies.set("user", JSON.stringify(user), { path: "/", "maxAge": (data.get("remember") === "on" ? 60 * 60 * 24 * 7 : 60 * 60) });
         throw redirect(301, "/projects");
     }
 }
